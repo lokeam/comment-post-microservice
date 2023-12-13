@@ -18,7 +18,6 @@ Posts example:
     }
   ]
 }
-
 */
 
 const posts = {};

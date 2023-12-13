@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
-import { POSTS_API_ENDPOINT } from "./constants";
+import { QUERY_API_ENDPOINT } from "./constants";
 
 const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get(POSTS_API_ENDPOINT);
+      const response = await axios.get(QUERY_API_ENDPOINT);
 
       setPosts(response.data);      
     } catch (error) {
@@ -22,7 +22,7 @@ const PostList = () => {
   }, []);
 
   const renderedPosts = Object.values(posts).map((post) => {
-    const { id, title } = post;
+    const { id, title, comments } = post;
     return (
       <div
         className="card"
@@ -31,9 +31,8 @@ const PostList = () => {
       >
         <div className="card-body">
           <h3>{title}</h3>
-          <CommentList postId={id} />
+          <CommentList comments={comments} />
           <CommentCreate postId={id} />
-
         </div>
       </div>
     );
