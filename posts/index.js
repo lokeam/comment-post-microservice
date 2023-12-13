@@ -1,33 +1,59 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// generate new id for every posts
+// Generate new id for every posts
 const { randomBytes } = require('crypto');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// store every post we create
+const EVENT_BUS_API_ENDPOINT = 'http://localhost:4005/events';
 
-// testing storing posts in memory
+// Store every post we create
+
+// Testing storing posts in memory
 const posts = {};
 
 app.get('/posts', (request, response) => {
   response.send(posts);
 });
 
-app.post('/posts', (request, response) => {
+app.post('/posts', async (request, response) => {
   const id = randomBytes(4).toString('hex');
   const { title } = request.body;
 
-  // assign each post with a unique id
+  // Assign each post with a unique id
   posts[id] = {
-    id, title
+    id,
+    title
   };
+
+  /*
+    After post, emit event to EventBus. Event will have two properties:
+    type: PostCreated (Str, event that just occurred)
+    data: Obj, info that clarifies what just happened
+    
+    EXAMPLE:
+    {
+      id: ''someIDHERE',
+      title: 'new post'
+    }  
+  */
+
+  await axios.post(EVENT_BUS_API_ENDPOINT, {
+    type: 'PostCreated',
+    data: {
+      id, title
+    }
+  });
+
 
   response.status(201).send(posts[id]);
 });
+
+
 
 app.listen(4000, () => {
   console.log('Listening on 4000');
