@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-
-const POSTS_API_ENDPOINT = 'http://localhost:4000/posts';
+import { POSTS_API_ENDPOINT } from "./constants";
 
 export default () => {
   const [title, setTitle] = useState('');
@@ -26,6 +25,7 @@ export default () => {
           <input
             className="form-control"
             onChange={(event) => setTitle(event.target.value)}
+            style={{marginBottom: '10px'}}
             value={title}
           />
         </div>

@@ -1,0 +1,1 @@
+export const POSTS_API_ENDPOINT = 'http://localhost:4000/posts';
