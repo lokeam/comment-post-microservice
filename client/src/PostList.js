@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import CommentCreate from "./CommentCreate";
+import CommentList from "./CommentList";
 import { POSTS_API_ENDPOINT } from "./constants";
 
 export default () => {
@@ -29,6 +31,9 @@ export default () => {
       >
         <div className="card-body">
           <h3>{title}</h3>
+          <CommentList postId={id} />
+          <CommentCreate postId={id} />
+
         </div>
       </div>
     );
