@@ -2,9 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // generate new id for every posts
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // store every post we create
 
