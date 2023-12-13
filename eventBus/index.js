@@ -3,19 +3,24 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 
 const app = express();
+app.use(bodyParser.json());
 
 const POSTS_API_ENDPOINT = 'http://localhost:4000/events';
 const COMMENTS_API_ENDPOINT = 'http://localhost:4001/events';
 const QUERY_SERVICE_API_ENDPOINT = 'http://localhost:4002/events';
 
-app.use(bodyParser.json());
-
 app.post('/events', (request, response) => {
   const event = request.body;
 
-  axios.post(POSTS_API_ENDPOINT, event);
-  axios.post(COMMENTS_API_ENDPOINT, event);
-  axios.post(QUERY_SERVICE_API_ENDPOINT, event);
+  axios.post(POSTS_API_ENDPOINT, event).catch((error) => {
+    console.log('EventBus error: ', error.message);
+  });
+  axios.post(COMMENTS_API_ENDPOINT, event).catch((error) => {
+    console.log('EventBus error: ', error.message);
+  });
+  axios.post(QUERY_SERVICE_API_ENDPOINT, event).catch((error) => {
+    console.log('EventBus error: ', error.message);
+  });
 
   response.send({staus: 'OK'});
 });

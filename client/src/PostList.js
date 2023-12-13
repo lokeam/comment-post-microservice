@@ -4,7 +4,7 @@ import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
 import { POSTS_API_ENDPOINT } from "./constants";
 
-export default () => {
+const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
@@ -43,3 +43,5 @@ export default () => {
     <div className="d-flex flex-row flex-wrap justify-content-between">{renderedPosts}</div>
   )
 };
+
+export default PostList;

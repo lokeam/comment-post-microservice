@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { COMMENTS_API_ENDPOINT } from "./constants";
 
-export default ({ postId }) => {
+const CommentList = ({ postId }) => {
   const [comments, setComments] = useState([]);
 
   const fetchData = async () => {
@@ -27,3 +27,5 @@ export default ({ postId }) => {
 
   return <ul>{renderedComments}</ul>
 };
+
+export default CommentList;

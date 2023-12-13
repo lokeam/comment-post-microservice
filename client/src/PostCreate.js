@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { POSTS_API_ENDPOINT } from "./constants";
 
-export default () => {
+const PostCreate = () => {
   const [title, setTitle] = useState('');
 
   const onSubmit = async (event) => {
@@ -34,3 +34,5 @@ export default () => {
     </div>
   );
 };
+
+export default PostCreate;

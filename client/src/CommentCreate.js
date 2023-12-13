@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { COMMENTS_API_ENDPOINT } from './constants';
 
-export default ({ postId }) => {
+const CommentCreate = ({ postId }) => {
   const [content, setContent] = useState('');
 
   const onSubmit = async (event) => {
@@ -36,3 +36,6 @@ export default ({ postId }) => {
     </div>
   )
 };
+
+
+export default CommentCreate;

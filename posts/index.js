@@ -53,7 +53,11 @@ app.post('/posts', async (request, response) => {
   response.status(201).send(posts[id]);
 });
 
-
+// Post Events Handler
+app.post('/events', (request, response) => {
+  console.log('Received Event: ', request.body.type);
+  response.send({});
+});
 
 app.listen(4000, () => {
   console.log('Listening on 4000');

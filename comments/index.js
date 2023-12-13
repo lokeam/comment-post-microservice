@@ -42,10 +42,16 @@ app.post('/posts/:id/comments', async (request, response) => {
       id: commentID,
       content,
       postId: request.params.id
-    }
+    },
   });
 
   response.status(201).send(comments);
+});
+
+app.post('/events', (request, response) => {
+  console.log('Event Received: ', request.body.type);
+
+  response.send({});
 });
 
 app.listen(4001, () => {
