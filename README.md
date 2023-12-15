@@ -15,11 +15,25 @@ This project is meant as an example educational tool `not` meant to act as a tem
 - `EventBus Data Store` (to ferry events from one service to another)
 - `Query Service `(to get full listing of all posts and associated comments)
 
-Posts titles are displayed clientside along with number of comments as well a tiny form to add comments.
+Posts titles are displayed clientside along with number of comments as well a tiny form to add comments. All microservices Dockerized for 
 
 
-## Usage
+## TODO: Future Updates
+
+### Implement Kubernetes
+- Implement Kubernetes to manage different Docker containers RE:
+* Deployments
+* NodePort Services
+* Cluster IP Services
+* Load Balancing
+
+### Implement Skaffold (https://skaffold.dev/)
+- Handle workflow for pushing, deploying application
+
+
+## Current Basic Usage
 
 1. Each microservice boots individual with `npm start`.
 2. Boot each microservice individual, including the client side React app.
 3. Observe request/response in server CLI and client console.
+4. Docker/Kubernetes TBD.
