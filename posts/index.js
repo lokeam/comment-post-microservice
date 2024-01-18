@@ -34,21 +34,21 @@ app.post('/posts', async (request, response) => {
     After post, emit event to EventBus. Event will have two properties:
     type: PostCreated (Str, event that just occurred)
     data: Obj, info that clarifies what just happened
-    
+
     EXAMPLE:
     {
       id: ''someIDHERE',
       title: 'new post'
-    }  
+    }
   */
 
   await axios.post(EVENT_BUS_API_ENDPOINT, {
     type: 'PostCreated',
     data: {
-      id, title
+      id,
+      title
     }
   });
-
 
   response.status(201).send(posts[id]);
 });
@@ -60,5 +60,6 @@ app.post('/events', (request, response) => {
 });
 
 app.listen(4000, () => {
+  console.log('v55');
   console.log('Listening on 4000');
 });
