@@ -7,10 +7,10 @@ app.use(bodyParser.json());
 
 const events = [];
 
-const POSTS_API_ENDPOINT = 'http://localhost:4000/events';
-const COMMENTS_API_ENDPOINT = 'http://localhost:4001/events';
-const QUERY_SERVICE_API_ENDPOINT = 'http://localhost:4002/events';
-const MODERATION_SERVICE_API_ENDPOINT = 'http://localhost:4003/events';
+const POSTS_API_ENDPOINT = 'http://post-clusterip-srv:4000/events';
+// const COMMENTS_API_ENDPOINT = 'http://localhost:4001/events';
+// const QUERY_SERVICE_API_ENDPOINT = 'http://localhost:4002/events';
+// const MODERATION_SERVICE_API_ENDPOINT = 'http://localhost:4003/events';
 
 app.post('/events', (request, response) => {
   const event = request.body;

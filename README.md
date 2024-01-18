@@ -19,8 +19,6 @@ This project is meant as an example educational tool `not` meant to act as a tem
 
 
 ## Project Roadmap Features
-- [ ] Replace JS implementation with TypeScript
-- [ ] Create sample Authentication Service
 
 ### Implement Kubernetes
 - Implement Kubernetes to manage different Docker containers RE:
@@ -29,12 +27,8 @@ This project is meant as an example educational tool `not` meant to act as a tem
 - [X] Cluster IP Services
 - [ ] Load Balancing via Ingress-NGINX
 
-### Implement Skaffold (https://skaffold.dev/)
+### Implement [Skaffold](https://skaffold.dev/)
 - [ ] Handle workflow for pushing, deploying application
-
-### CI/CD (https://skaffold.dev/)
-- [ ] Automated testing via Jest and Github Actions
-
 
 ## Current Basic Usage
 

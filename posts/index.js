@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const EVENT_BUS_API_ENDPOINT = 'http://localhost:4005/events';
+const EVENT_BUS_API_ENDPOINT = 'http://event-bus-srv:4005/events';
 
 // Store every post we create
 
