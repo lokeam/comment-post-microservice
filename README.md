@@ -13,22 +13,13 @@ This project is meant as an example educational tool `not` meant to act as a tem
 - `Post Service`
 - `Comment Service`
 - `Moderation Service` (for blocking flagged posts)
-- `EventBus Data Store` (to ferry events from one service to another)
-- `Query Service `(to get full listing of all posts and associated comments)
-- All services are Dockerized and deployed via Kubernetes.
+- `Event Bus Data Store` (to ferry events from one service to another)
+- `Query Service` (to get full listing of all posts and associated comments)
 
-
-## Project Roadmap Features
-
-### Implement Kubernetes
-- Implement Kubernetes to manage different Docker containers RE:
-- [X] Deployments
-- [X] NodePort Services
-- [X] Cluster IP Services
-- [ ] Load Balancing via Ingress-NGINX
-
-### Implement [Skaffold](https://skaffold.dev/)
-- [ ] Handle workflow for pushing, deploying application
+**Deployment**
+- All services are Dockerized and deployed via [Kubernetes](https://kubernetes.io/).
+- Load Balancing implemented via [Ingress-Nginx Controller](https://kubernetes.github.io/ingress-nginx/).
+- Automated Pod/Service workflow updates handled via [Skaffold](https://skaffold.dev/)
 
 ## Current Basic Usage
 
@@ -56,4 +47,7 @@ $ kubectl rollout restart deployment DEPLOYMENT_NAME
 
 # Restart all Kubernetes deployments
 $ kubectl rollout restart deployment
+
+# Start Skaffold
+$ skaffold dev
 ```
