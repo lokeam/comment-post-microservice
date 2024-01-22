@@ -25,24 +25,13 @@ app.post('/posts/:id/comments', async (request, response) => {
   comments.push({ id: commentID, content, status: 'pending' });
   commentsByPostId[request.params.id] = comments;
 
-  /*
-    After post, emit event to EventBus. Event will have two properties:
-    type: PostCreated (Str, event that just occurred)
-    data: Obj, info that clarifies what just happened
-
-    EXAMPLE:
-    {
-      id: ''someIDHERE',
-      title: 'new post'
-    }
-  */
   await axios.post(EVENT_BUS_API_ENDPOINT, {
     type: 'CommentCreated',
     data: {
       id: commentID,
       content,
       postId: request.params.id,
-      status: 'pending'
+      status: 'pending',
     },
   });
 

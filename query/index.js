@@ -66,11 +66,15 @@ app.post('/events', (request, response) => {
 app.listen(4002, async () => {
   console.log('Listening on 4002');
 
-  const response = await axios.get(EVENT_BUS_API_ENDPOINT);
+  try {
+    const response = await axios.get(EVENT_BUS_API_ENDPOINT);
 
-  for (let event of response.data) {
-    console.log('Processing event: ', event.type);
+    for (let event of response.data) {
+      console.log('Processing event: ', event.type);
 
-    handleEvent(event.type, event.data)
+      handleEvent(event.type, event.data)
+    }
+  } catch (error) {
+    console.log(error.message);
   }
 });

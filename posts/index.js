@@ -47,7 +47,7 @@ app.post('/posts', async (request, response) => {
     data: {
       id,
       title
-    }
+    },
   });
 
   response.status(201).send(posts[id]);
@@ -60,6 +60,5 @@ app.post('/events', (request, response) => {
 });
 
 app.listen(4000, () => {
-  console.log('v55');
   console.log('Listening on 4000');
 });
