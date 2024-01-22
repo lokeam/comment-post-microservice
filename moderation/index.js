@@ -5,7 +5,7 @@ const axios = require('axios');
 const app = express();
 app.use(bodyParser.json());
 
-const EVENT_BUS_API_ENDPOINT = 'http://localhost:4005/events';
+const EVENT_BUS_API_ENDPOINT = 'http://event-bus-srv:4005/events';
 
 app.post('/events', async (request, response) => {
   const { type, data } = request.body;

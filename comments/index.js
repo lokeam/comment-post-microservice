@@ -8,7 +8,7 @@ const app  = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const EVENT_BUS_API_ENDPOINT = 'http://localhost:4005/events';
+const EVENT_BUS_API_ENDPOINT = 'http://event-bus-srv:4005/events';
 
 const commentsByPostId = {};
 
@@ -29,12 +29,12 @@ app.post('/posts/:id/comments', async (request, response) => {
     After post, emit event to EventBus. Event will have two properties:
     type: PostCreated (Str, event that just occurred)
     data: Obj, info that clarifies what just happened
-    
+
     EXAMPLE:
     {
       id: ''someIDHERE',
       title: 'new post'
-    }  
+    }
   */
   await axios.post(EVENT_BUS_API_ENDPOINT, {
     type: 'CommentCreated',

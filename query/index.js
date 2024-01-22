@@ -21,7 +21,7 @@ Posts example:
 }
 */
 
-const EVENT_BUS_API_ENDPOINT = 'http://localhost:4005/events';
+const EVENT_BUS_API_ENDPOINT = 'http://event-bus-srv:4005/events';
 const posts = {};
 
 const handleEvent = (type, data) => {
