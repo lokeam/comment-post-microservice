@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { COMMENTS_API_ENDPOINT } from './constants';
+import { API_ENDPOINT } from './constants';
 
 const CommentCreate = ({ postId }) => {
   const [content, setContent] = useState('');
@@ -8,7 +8,7 @@ const CommentCreate = ({ postId }) => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      const resposne = await axios.post(`${COMMENTS_API_ENDPOINT}${postId}/comments`, {
+      const resposne = await axios.post(`${API_ENDPOINT}${postId}/comments`, {
         content
       });
 

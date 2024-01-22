@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import CommentCreate from "./CommentCreate";
 import CommentList from "./CommentList";
-import { QUERY_API_ENDPOINT } from "./constants";
+import { API_ENDPOINT } from "./constants";
 
 const PostList = () => {
   const [posts, setPosts] = useState({});
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get(QUERY_API_ENDPOINT);
+      const response = await axios.get(API_ENDPOINT);
 
-      setPosts(response.data);      
+      setPosts(response.data);
     } catch (error) {
       console.log('I am error. Problem with fetchPosts: ', error);
     }
